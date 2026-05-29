@@ -162,16 +162,65 @@ nav {
   margin: 28px 0 24px;
 }
 
+.hero-tagline {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 520px;
+  margin-bottom: 16px;
+}
+
 .hero-bio {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.7;
   color: var(--ink-mid);
   max-width: 560px;
 }
 
-.hero-bio strong {
-  color: var(--ink);
-  font-weight: 500;
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 22px;
+  border: 1px solid var(--rule);
+  color: var(--ink-mid);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.hero-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.hero-btn-primary {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--bg);
+}
+
+.hero-btn-primary:hover {
+  opacity: 0.88;
+  color: var(--bg);
+}
+
+.work-wip {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-top: 10px;
+  opacity: 0.85;
 }
 
 /* ── SECTION ── */
@@ -457,8 +506,6 @@ footer p {
 <nav>
   <a href="index.html" class="nav-name">Fee Wiley</a>
   <ul class="nav-links">
-    <li><a href="index.html#now">Now</a></li>
-    <li><a href="index.html#work">Work</a></li>
     <li><a href="resume.html">Resume</a></li>
     <li><a href="webinars.html">Webinars</a></li>
     <li><a href="index.html#with-me">Work With Me</a></li>
@@ -477,11 +524,12 @@ footer p {
         <em>Wiley</em>
       </h1>
       <div class="hero-rule"></div>
-      <p class="hero-bio">
-        Data engineer and strategist. Graduate researcher at Penn. I study the intersection of <strong>sociotechnical systems and behavioral science</strong> — how technology shapes behavior, and how behavior shapes technology.
-        <br><br>
-        I look for patterns. In data. In people. In the structures we build and the ones that build us.
-      </p>
+      <p class="hero-tagline">I build data systems that hold up, and study the ones that shape how people think.</p>
+      <p class="hero-bio">Data engineer. Penn MCIT. Clinical AI and sociotechnical research.</p>
+      <div class="hero-cta">
+        <a href="resume.html" class="hero-btn hero-btn-primary">View Resume</a>
+        <a href="#with-me" class="hero-btn">Work With Me</a>
+      </div>
     </div>
 
     <!-- RIGHT: PHOTO -->
@@ -497,23 +545,15 @@ footer p {
     <ul class="now-list">
       <li>
         <span class="now-key">Studying</span>
-        <span class="now-val">MCIT at Penn Engineering — graduating <strong>Summer 2027</strong></span>
+        <span class="now-val">MCIT at Penn Engineering, graduating <strong>Summer 2027</strong></span>
       </li>
       <li>
         <span class="now-key">Researching</span>
-        <span class="now-val">AI-assisted clinical NLP error analysis at Penn Medicine — and <strong>The Manufactured Agreeable Mind</strong>, a study of cognitive compliance through a sociotechnical and behavioral science lens</span>
-      </li>
-      <li>
-        <span class="now-key">Writing</span>
-        <span class="now-val"><strong>Architect of Calm</strong> — a book built on two years of interviews about how people actually build sustainable lives</span>
-      </li>
-      <li>
-        <span class="now-key">Consulting</span>
-        <span class="now-val">Data strategy and analytics through <strong>SilverCreek Insights</strong></span>
+        <span class="now-val">Clinical NLP at Penn Medicine; independent work on AI, agreement, and cognitive compliance</span>
       </li>
       <li>
         <span class="now-key">Based</span>
-        <span class="now-val">Philadelphia — previously LA, Central/South America, Europe</span>
+        <span class="now-val">Philadelphia, previously LA, Central/South America, Europe</span>
       </li>
     </ul>
   </section>
@@ -544,7 +584,8 @@ footer p {
 
       <div class="work-item">
         <div class="work-title">Research</div>
-        <div class="work-desc">NLP error analysis and clinical AI at Penn Medicine. Sociotechnical and behavioral science as the lens.</div>
+        <div class="work-desc">Clinical NLP and structured extraction at Penn Medicine. <strong>The Manufactured Agreeable Mind</strong>: how AI systems shape judgment, agreement, and dissent.</div>
+        <div class="work-wip">WIP</div>
       </div>
 
     </div>
@@ -558,12 +599,12 @@ footer p {
     </p>
     <div class="wm-types">
       <div class="wm-type">Data strategy and analytics consulting</div>
-      <div class="wm-type">Speaking — tech, AI, burnout, sociotechnical systems</div>
+      <div class="wm-type">Speaking: tech, AI, burnout, sociotechnical systems</div>
       <div class="wm-type">Podcast guest appearances</div>
       <div class="wm-type">Research collaborations</div>
     </div>
     <p class="contact-line">
-      Reach me at <a href="mailto:fee@felisawiley.com">fee@felisawiley.com</a>
+      Reach me at <a href="mailto:felisawiley@gmail.com">felisawiley@gmail.com</a> · consulting: <a href="mailto:fee@silvercreek.ai">fee@silvercreek.ai</a>
     </p>
 
     <div class="social-row">
