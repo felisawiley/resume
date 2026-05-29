@@ -1,0 +1,22 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'EB Garamond';
+        src: url('../fonts/EBGaramond-Variable.ttf') format('truetype');
+        font-weight: 100 900;
+        font-style: normal;
+      }
+    </style>
+  </defs>
+  <rect width="512" height="512" fill="#1e3d40"/>
+  <text
+    x="256"
+    y="370"
+    font-family="'EB Garamond', Garamond, 'Palatino Linotype', Palatino, 'Times New Roman', Times, Georgia, serif"
+    font-size="380"
+    font-weight="800"
+    fill="#c8862a"
+    text-anchor="middle"
+  >F</text>
+</svg>
