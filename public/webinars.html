@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45T8CP1WW5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45T8CP1WW5');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webinars — Felisa "Fee" Wiley</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/images/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/images/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="icon" href="assets/images/android-chrome-192x192.png" sizes="192x192" type="image/png">
+  <link rel="icon" href="assets/images/android-chrome-512x512.png" sizes="512x512" type="image/png">
+
+  <style>
+  :root {
+    --bg:      #f5f2eb;
+    --ink:     #141210;
+    --ink-mid: #4a4540;
+    --ink-dim: #9a9088;
+    --amber:   #c8862a;
+    --rule:    #ddd8ce;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'EB Garamond', serif;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 28px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(245,242,235,0.97) 60%, transparent);
+  }
+
+  .nav-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--amber); }
+
+  /* ── LAYOUT ── */
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 56px;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding: 120px 0 48px;
+    border-bottom: 1px solid var(--rule);
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .page-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+
+  .page-title {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .page-title em {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .page-lead {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--ink-mid);
+    max-width: 540px;
+  }
+
+  /* ── WEBINAR GRID ── */
+  .webinars-section {
+    padding: 64px 0 100px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .webinar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  .webinar-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .webinar-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  /* ── VIDEO ── */
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--ink);
+    overflow: hidden;
+  }
+
+  .video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* ── WEBINAR CONTENT ── */
+  .webinar-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    opacity: 0.8;
+    margin-bottom: 14px;
+  }
+
+  .webinar-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .webinar-subtitle {
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .webinar-rule {
+    width: 28px;
+    height: 1px;
+    background: var(--amber);
+    opacity: 0.4;
+    margin-bottom: 18px;
+  }
+
+  .webinar-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-mid);
+    margin-bottom: 20px;
+  }
+
+  .webinar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .webinar-tags span {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+    border: 1px solid var(--rule);
+    padding: 4px 10px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  footer a {
+    color: var(--amber);
+    text-decoration: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .container { padding: 0 24px; }
+    .page-header { padding: 100px 0 36px; }
+    .webinar-item { grid-template-columns: 1fr; gap: 28px; }
+    .footer-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
+  }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Fee Wiley</a>
+  <ul class="nav-links">
+    <li><a href="index.html#now">Now</a></li>
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="webinars.html" class="active">Webinars</a></li>
+    <li><a href="index.html#with-me">With Me</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-eyebrow">Fee Wiley</div>
+    <h1 class="page-title">Talks <em>&</em> Webinars</h1>
+    <p class="page-lead">In-depth conversations on data engineering, tech entrepreneurship, and what it actually takes to build something that lasts.</p>
+  </div>
+
+  <!-- WEBINARS -->
+  <div class="webinars-section">
+    <div class="webinar-list">
+
+      <!-- WEBINAR 1 -->
+      <div class="webinar-item">
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/aOSjN6sy40Y"
+            title="From Data Engineer to Tech Startup Founder"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="webinar-content">
+          <div class="webinar-meta">April 2024</div>
+          <h2 class="webinar-title">From Data Engineer to Tech Startup Founder</h2>
+          <div class="webinar-subtitle">Unleashing Your Inner Talents</div>
+          <div class="webinar-rule"></div>
+          <p class="webinar-desc">Ready to ignite your entrepreneurial spirit? Join me as we explore the journey from Data Engineering to Tech Startup success. Learn how to unearth and leverage your innate talents while navigating the startup landscape with confidence.</p>
+          <div class="webinar-tags">
+            <span>#TechStartup</span>
+            <span>#Innovation</span>
+            <span>#Career</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEBINAR 2 -->
+      <div class="webinar-item">
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/dNe2bF93A2I"
+            title="Data-Driven Impact"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="webinar-content">
+          <div class="webinar-meta">March 2024</div>
+          <h2 class="webinar-title">Data-Driven Impact</h2>
+          <div class="webinar-subtitle">Unlocking Value Through Analytics & Engineering</div>
+          <div class="webinar-rule"></div>
+          <p class="webinar-desc">Discover how analytics and engineering shape decisions, drive value, and create lasting impact. Join me for an insightful session on leveraging data to boost your organizational value.</p>
+          <div class="webinar-tags">
+            <span>#DataAnalytics</span>
+            <span>#Engineering</span>
+            <span>#Innovation</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 Fee Wiley</p>
+      <p><a href="index.html">feewiley.co</a></p>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

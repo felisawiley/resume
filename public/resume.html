@@ -1,44 +1,686 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felisa Wiley - Resume</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45T8CP1WW5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45T8CP1WW5');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Fee Wiley</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/images/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/images/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+  <style>
+  :root {
+    --bg:       #f5f2eb;
+    --ink:      #141210;
+    --ink-mid:  #4a4540;
+    --ink-dim:  #9a9088;
+    --amber:    #c8862a;
+    --rule:     #ddd8ce;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'EB Garamond', serif;
+    min-height: 100vh;
+  }
+
+  /* grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 28px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(245,242,235,0.97) 60%, transparent);
+  }
+
+  .nav-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--amber); }
+
+  /* ── LAYOUT ── */
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 56px;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding: 120px 0 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--rule);
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .page-header-left {}
+
+  .page-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+
+  .page-title {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+
+  .page-title em {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .page-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .contact-line {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+  }
+
+  .contact-line a {
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-line a:hover { color: var(--amber); }
+
+  .print-btn {
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .print-btn:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  /* ── RESUME BODY ── */
+  .resume-body {
+    padding: 56px 0 100px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  /* ── SECTION ── */
+  .resume-section {
+    display: contents;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    opacity: 0.8;
+    padding: 40px 32px 0 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .section-content {
+    padding: 40px 0 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* first section — no top rule */
+  .section-label.first,
+  .section-content.first {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  /* ── SUMMARY ── */
+  .summary-text {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink-mid);
+    max-width: 600px;
+  }
+
+  .summary-text strong { color: var(--ink); font-weight: 500; }
+
+  /* ── EXPERIENCE ── */
+  .exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .exp-item {}
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .exp-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .exp-dates {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    color: var(--ink-dim);
+    white-space: nowrap;
+  }
+
+  .exp-company {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .exp-bullets li {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-mid);
+    display: flex;
+    gap: 12px;
+  }
+
+  .exp-bullets li::before {
+    content: '—';
+    color: var(--amber);
+    opacity: 0.5;
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding-top: 3px;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 48px;
+  }
+
+  .skill-group-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 6px;
+  }
+
+  .skill-group-items {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-mid);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .edu-item {}
+
+  .edu-degree {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+
+  .edu-school {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    opacity: 0.8;
+    margin-bottom: 6px;
+  }
+
+  .edu-detail {
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  footer a {
+    color: var(--amber);
+    text-decoration: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body::before { display: none; }
+    nav { display: none; }
+    .print-btn { display: none; }
+    footer { display: none; }
+
+    body { background: #fff; }
+
+    .container { padding: 0 32px; }
+
+    .page-header {
+      padding: 32px 0 24px;
+    }
+
+    .resume-body { padding: 32px 0; }
+
+    .section-label,
+    .section-content { padding-top: 24px; }
+
+    .exp-list { gap: 24px; }
+
+    @page {
+      margin: 0.5in;
+      size: letter;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .container { padding: 0 24px; }
+    .page-header { flex-direction: column; gap: 24px; align-items: flex-start; padding: 100px 0 36px; }
+    .page-header-right { align-items: flex-start; }
+    .resume-body { grid-template-columns: 1fr; gap: 0; }
+    .section-label { padding: 32px 0 8px; border-top: none; }
+    .section-label.first { padding-top: 24px; }
+    .section-content { padding-top: 0; border-top: none; border-bottom: 1px solid var(--rule); padding-bottom: 32px; }
+    .section-content.first { padding-bottom: 32px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
+  }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">Felisa Wiley</a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">About Fee</a></li>
-                    <li><a href="webinars.html">Webinars</a></li>
-                    <li><a href="consulting.html">Consulting</a></li>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="https://linkedin.com/in/felisawiley" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/felisawiley" target="_blank"><i class="fab fa-github"></i></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <main class="container">
-        <h1>My Resume</h1>
-        <button id="download-pdf" class="cta-button">Download PDF</button>
-        <div id="resume-container">
-            <!-- Resume content will be dynamically loaded here -->
-        </div>
-    </main>
+<nav>
+  <a href="index.html" class="nav-name">Fee Wiley</a>
+  <ul class="nav-links">
+    <li><a href="index.html#now">Now</a></li>
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="resume.html" class="active">Resume</a></li>
+    <li><a href="webinars.html">Webinars</a></li>
+    <li><a href="index.html#with-me">With Me</a></li>
+  </ul>
+</nav>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Felisa Wiley. All rights reserved.</p>
+<div class="container">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-left">
+      <div class="page-eyebrow">Felisa Wiley</div>
+      <h1 class="page-title">Resume <em>&</em> Experience</h1>
+    </div>
+    <div class="page-header-right">
+      <span class="contact-line">331-998-3124</span>
+      <span class="contact-line"><a href="mailto:felisawiley@gmail.com">felisawiley@gmail.com</a></span>
+      <span class="contact-line"><a href="https://linkedin.com/in/felisawiley" target="_blank">linkedin.com/in/felisawiley</a></span>
+      <button class="print-btn" onclick="window.print()">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print / Save PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- RESUME BODY -->
+  <div class="resume-body">
+
+    <!-- SUMMARY -->
+    <div class="section-label first">Summary</div>
+    <div class="section-content first">
+      <p class="summary-text">
+        Data engineer and strategist with 7+ years building scalable infrastructure, automating workflows, and translating complex data into decisions. I've worked across fast-paced startups, enterprise clients, and mission-driven nonprofits — with a consistent focus on <strong>systems that actually hold up</strong>. Graduate researcher at Penn studying sociotechnical systems and behavioral science. I look for patterns in data, in people, and in the structures we build.
+      </p>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section-label">Experience</div>
+    <div class="section-content">
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Analytics Engineer & Data Platform Lead</div>
+            <div class="exp-dates">Apr 2025 — Apr 2026</div>
+          </div>
+          <div class="exp-company">Newfire Global — Contract</div>
+          <ul class="exp-bullets">
+            <li>Led a global data engineering team through a complete overhaul of a nonprofit healthcare client's data infrastructure — migrating from Redshift to Snowflake, integrating 5+ external data sources, and establishing core business metrics for clinical and financial operations.</li>
+            <li>Collaborated across clinical, administrative, and executive teams to define and stabilize analytics, improving data quality and organizational transparency.</li>
+            <li>Developed a layered Tableau dashboard strategy with QA and reporting tiers, alongside data literacy training to enable self-service analytics.</li>
+          </ul>
         </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="js/resume.js"></script>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Data Engineer E1</div>
+            <div class="exp-dates">Aug 2023 — Jan 2025</div>
+          </div>
+          <div class="exp-company">ReUp — Remote</div>
+          <ul class="exp-bullets">
+            <li>Contributed to migrations of complex database schemas from legacy systems to modern environments, ensuring data integrity and system continuity.</li>
+            <li>Evaluated 20+ existing database schemas and dependencies, identifying and addressing key migration challenges.</li>
+            <li>Developed and implemented ETL processes to transform and integrate data into new systems with detailed documentation.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Analytics Engineer Consultant</div>
+            <div class="exp-dates">Aug 2023 — Oct 2024</div>
+          </div>
+          <div class="exp-company">SilverCreek Insights — Contract</div>
+          <ul class="exp-bullets">
+            <li>Delivered analytics engineering and data strategy consulting across healthcare, adtech, and financial services clients.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">BI Engineer E1</div>
+            <div class="exp-dates">Sep 2018 — Aug 2023</div>
+          </div>
+          <div class="exp-company">Foursquare (acquired Factual) — Remote</div>
+          <ul class="exp-bullets">
+            <li>Delivered data ingestions to the BI data warehouse with a focus on data quality and minimizing reporting gaps — saving over $1M annually.</li>
+            <li>Oversaw data integration for major partners accounting for $60M+ in monthly revenue, ensuring integrity and compliance with government reporting requirements.</li>
+            <li>Reduced weekly workload from 40 to 3 hours through targeted data integration solutions.</li>
+            <li>Developed complex DBT models critical for accurate government filings, enabling precise monthly revenue reporting.</li>
+            <li>Engaged and optimized data integration with 400+ adtech partners.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Reporting Analyst</div>
+            <div class="exp-dates">Aug 2018 — Sep 2021</div>
+          </div>
+          <div class="exp-company">Factual (acquired by Foursquare) — Remote</div>
+          <ul class="exp-bullets">
+            <li>Managed, optimized, and QA'd monthly reporting for 40+ partners using Python and SQL, and improved stakeholder dashboards in Tableau.</li>
+            <li>Provided weekly, monthly, quarterly, and annual reporting plus ad-hoc analysis across Sales, Client Solutions, and Executive teams.</li>
+            <li>Developed location-based targeting strategies for national and regional accounts across verticals.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RESEARCH -->
+    <div class="section-label">Research</div>
+    <div class="section-content">
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Research Assistant</div>
+            <div class="exp-dates">Mar 2026 — Present</div>
+          </div>
+          <div class="exp-company">Penn Medicine — AI-4-AI Lab</div>
+          <ul class="exp-bullets">
+            <li>Conducting applied NLP research under Dr. Kevin Johnson on structured information extraction from clinical dialogue — agenda-setting and task assignment in clinician-patient encounters.</li>
+            <li>Performing error analysis comparing LLM-generated labels against ground-truth clinician annotations to evaluate and improve model performance.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">The Manufactured Agreeable Mind</div>
+            <div class="exp-dates">In progress</div>
+          </div>
+          <div class="exp-company">Independent Research</div>
+          <ul class="exp-bullets">
+            <li>Studying cognitive compliance through a sociotechnical and behavioral science lens — how AI systems shape human judgment, agreement, and dissent.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LEADERSHIP -->
+    <div class="section-label">Leadership</div>
+    <div class="section-content">
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Host & Producer — SciPod</div>
+            <div class="exp-dates">Apr 2024 — Present</div>
+          </div>
+          <div class="exp-company">SilverCreek Insights</div>
+          <ul class="exp-bullets">
+            <li>Hosts a bi-weekly technical podcast reaching 2,000+ data professionals monthly.</li>
+            <li>Produced 35+ episodes, growing monthly listeners 40% through strategic cross-promotion.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Board Member</div>
+            <div class="exp-dates">Mar 2025 — Mar 2026</div>
+          </div>
+          <div class="exp-company">The Nava Center</div>
+          <ul class="exp-bullets">
+            <li>Advised on technology solutions and strategic initiatives for a mental health nonprofit.</li>
+            <li>Mentored leadership on scaling program reach and organizational impact.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section-label">Education</div>
+    <div class="section-content">
+      <div class="edu-list">
+
+        <div class="edu-item">
+          <div class="edu-degree">Master of Computer and Information Technology (MCIT)</div>
+          <div class="edu-school">University of Pennsylvania — Expected H2 2027</div>
+          <div class="edu-detail">TA — CIT 2400 Introduction to Computer Systems, Spring 2026</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">Bachelor of Arts — Media & Communications and Philosophy</div>
+          <div class="edu-school">Muhlenberg College — May 2016</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">AWS Cloud Practitioner</div>
+          <div class="edu-school">Amazon Web Services — September 2023</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section-label">Skills</div>
+    <div class="section-content">
+      <div class="skills-grid">
+
+        <div>
+          <div class="skill-group-label">Languages</div>
+          <div class="skill-group-items">Python, SQL, Java, JavaScript, TypeScript, HTML</div>
+        </div>
+
+        <div>
+          <div class="skill-group-label">Data Engineering</div>
+          <div class="skill-group-items">ETL, Data Modeling, DBT, PostgreSQL, Data Quality, Documentation</div>
+        </div>
+
+        <div>
+          <div class="skill-group-label">Platforms & Infrastructure</div>
+          <div class="skill-group-items">Snowflake, AWS, Google Cloud, Redshift, Estuary</div>
+        </div>
+
+        <div>
+          <div class="skill-group-label">Visualization & BI</div>
+          <div class="skill-group-items">Tableau, Sigma Computing</div>
+        </div>
+
+        <div>
+          <div class="skill-group-label">Research</div>
+          <div class="skill-group-items">NLP, Clinical AI, Sociotechnical Systems, Behavioral Science</div>
+        </div>
+
+        <div>
+          <div class="skill-group-label">Other</div>
+          <div class="skill-group-items">Salesforce, Jira, Project Management, Client Services, AdTech (DSPs, DMPs, SSPs)</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 Fee Wiley</p>
+      <p><a href="index.html">feewiley.co</a></p>
+    </div>
+  </footer>
+</div>
+
 </body>
 </html>

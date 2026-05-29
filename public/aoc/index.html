@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support the Book — Architect of Calm</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-deep:  #1e3d40;
+  --teal-dark:  #162e30;
+  --teal-mid:   #2a5254;
+  --teal-muted: #a8c4c0;
+  --amber:      #e8b84b;
+  --amber-dim:  #c49a30;
+  --off-white:  #f0ebe0;
+  --off-dim:    #c8c2b2;
+  --ink:        #0e1e1f;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--teal-deep);
+  color: var(--off-white);
+  font-family: 'EB Garamond', serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(14,30,31,0.95) 0%, transparent 100%);
+}
+
+.nav-logo {
+  font-family: 'EB Garamond', serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--off-white);
+  text-decoration: none;
+}
+.nav-logo em { font-style: italic; color: var(--amber); }
+
+.nav-back {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--amber); }
+
+/* ── HERO ── */
+.book-hero {
+  position: relative;
+  z-index: 1;
+  padding: 140px 56px 64px;
+  max-width: 760px;
+  animation: fadeUp 0.7s ease both;
+}
+
+.book-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+.book-hero h1 {
+  font-size: clamp(48px, 7vw, 80px);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+
+.book-hero h1 em {
+  display: block;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--amber);
+  margin: 10px 0 8px;
+  line-height: 1;
+}
+
+.book-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--amber);
+  opacity: 0.5;
+  margin-bottom: 28px;
+}
+
+.book-hero p {
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--teal-muted);
+  max-width: 600px;
+}
+.book-hero p strong { color: var(--off-white); font-weight: 500; }
+
+/* ── PROGRESS ── */
+.progress-section {
+  position: relative;
+  z-index: 1;
+  padding: 0 56px 72px;
+  max-width: 760px;
+  animation: fadeUp 0.7s 0.15s ease both;
+}
+
+.progress-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal-muted);
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(168,196,192,0.15);
+  border-radius: 2px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 34%;
+  background: var(--amber);
+  border-radius: 2px;
+}
+
+.progress-stats {
+  display: flex;
+  gap: 48px;
+}
+
+.stat-number {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--off-white);
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal-muted);
+  margin-top: 3px;
+}
+
+/* ── TIERS ── */
+.tiers-section {
+  position: relative;
+  z-index: 1;
+  padding: 0 56px 100px;
+}
+
+.tiers-heading {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: 0.7;
+  margin-bottom: 28px;
+}
+
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+/* bottom row: 3 tiers centered */
+.tiers-grid-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.tier {
+  background: var(--teal-dark);
+  padding: 32px 28px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid transparent;
+  transition: background 0.2s, border-color 0.2s;
+  position: relative;
+}
+
+.tier:hover {
+  background: var(--teal-mid);
+  border-color: rgba(232,184,75,0.12);
+}
+
+.tier.featured {
+  background: rgba(232,184,75,0.07);
+  border: 1px solid rgba(232,184,75,0.28);
+}
+
+.tier.headline {
+  background: rgba(232,184,75,0.04);
+  border: 1px solid rgba(232,184,75,0.15);
+  grid-column: span 1;
+}
+
+.tier-badge {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--amber);
+  padding: 3px 8px;
+  align-self: flex-start;
+  margin-bottom: -4px;
+}
+
+.tier-number {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: var(--amber);
+  opacity: 0.5;
+}
+
+.tier-price {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  line-height: 1;
+}
+
+.tier-currency {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--teal-muted);
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+.tier-amount {
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--off-white);
+  line-height: 1;
+}
+
+.tier-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--off-white);
+  line-height: 1.1;
+}
+
+.tier-desc {
+  font-size: 13px;
+  color: var(--teal-muted);
+  line-height: 1.6;
+  font-style: italic;
+  flex: 1;
+}
+
+.tier-perks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.tier-perks li {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.03em;
+  color: var(--off-dim);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.55;
+}
+
+.tier-perks li::before {
+  content: '—';
+  color: var(--amber);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.tier-perks li.highlight {
+  color: var(--off-white);
+}
+
+.tier-perks li.highlight::before { opacity: 1; }
+
+.tier-btn {
+  display: block;
+  padding: 13px 20px;
+  border: 1px solid rgba(168,196,192,0.2);
+  background: transparent;
+  color: var(--off-white);
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 6px;
+}
+
+.tier-btn:hover {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--ink);
+}
+
+.tier.featured .tier-btn,
+.tier.headline .tier-btn {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--ink);
+}
+
+.tier.featured .tier-btn:hover,
+.tier.headline .tier-btn:hover {
+  background: var(--amber-dim);
+  border-color: var(--amber-dim);
+}
+
+/* ── WHY ── */
+.why-section {
+  position: relative;
+  z-index: 1;
+  padding: 0 56px 100px;
+  max-width: 760px;
+}
+
+.why-rule {
+  width: 100%;
+  height: 1px;
+  background: rgba(168,196,192,0.1);
+  margin-bottom: 56px;
+}
+
+.why-heading {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--off-white);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.why-heading em { font-style: italic; color: var(--amber); }
+
+.why-body {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--teal-muted);
+  max-width: 580px;
+}
+.why-body strong { color: var(--off-white); font-weight: 500; }
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 1;
+  padding: 32px 56px;
+  border-top: 1px solid rgba(168,196,192,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(168,196,192,0.25);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 20px 28px; }
+  .book-hero, .progress-section, .tiers-section, .why-section { padding-left: 28px; padding-right: 28px; }
+  .tiers-grid, .tiers-grid-bottom { grid-template-columns: 1fr; }
+  footer { padding: 24px 28px; flex-direction: column; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="architect-of-calm-landing.html" class="nav-logo">Architect <em>of</em> Calm</a>
+  <a href="architect-of-calm-landing.html" class="nav-back">← Back</a>
+</nav>
+
+<!-- HERO -->
+<section class="book-hero">
+  <div class="book-eyebrow">The Book — Coming 2027</div>
+  <h1>
+    Architect
+    <em>of</em>
+    Calm
+  </h1>
+  <div class="book-rule"></div>
+  <p>
+    This book started as a podcast. Over two years, <strong>Fee Wiley interviewed dozens of people</strong> about how they actually built calm into their lives — not the performed version. At work. At home. In the relationships that cost them the most.
+    <br><br>
+    The interviews are done. The patterns are clear. Now it needs to be written. <strong>Your support makes that happen.</strong>
+  </p>
+</section>
+
+<!-- PROGRESS -->
+<section class="progress-section">
+  <div class="progress-label">Funding Progress</div>
+  <div class="progress-bar"><div class="progress-fill"></div></div>
+  <div class="progress-stats">
+    <div>
+      <div class="stat-number">34%</div>
+      <div class="stat-label">Funded</div>
+    </div>
+    <div>
+      <div class="stat-number">47</div>
+      <div class="stat-label">Supporters</div>
+    </div>
+    <div>
+      <div class="stat-number">$8,420</div>
+      <div class="stat-label">Raised</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS ROW 1 -->
+<section class="tiers-section">
+  <div class="tiers-heading">Choose your support level</div>
+
+  <div class="tiers-grid">
+
+    <!-- T1: THE READER -->
+    <div class="tier">
+      <div class="tier-number">01</div>
+      <div class="tier-price">
+        <span class="tier-currency">$</span>
+        <span class="tier-amount">20</span>
+      </div>
+      <div class="tier-name">The Reader</div>
+      <div class="tier-desc">You believe this book should exist. That's enough.</div>
+      <ul class="tier-perks">
+        <li>Digital copy at launch</li>
+        <li>Name in the acknowledgments</li>
+        <li>Early access newsletter</li>
+      </ul>
+      <a href="#" class="tier-btn">Support — $20</a>
+    </div>
+
+    <!-- T2: THE SUPPORTER -->
+    <div class="tier featured">
+      <div class="tier-badge">Most popular</div>
+      <div class="tier-number">02</div>
+      <div class="tier-price">
+        <span class="tier-currency">$</span>
+        <span class="tier-amount">50</span>
+      </div>
+      <div class="tier-name">The Supporter</div>
+      <div class="tier-desc">You want the book and something to hold onto.</div>
+      <ul class="tier-perks">
+        <li>Everything in The Reader</li>
+        <li class="highlight">Branded journal — mailed to you</li>
+        <li>Named as a founding supporter</li>
+      </ul>
+      <a href="#" class="tier-btn">Support — $50</a>
+    </div>
+
+    <!-- T3: THE ADVOCATE -->
+    <div class="tier">
+      <div class="tier-number">03</div>
+      <div class="tier-price">
+        <span class="tier-currency">$</span>
+        <span class="tier-amount">100</span>
+      </div>
+      <div class="tier-name">The Advocate</div>
+      <div class="tier-desc">You want the full kit and the public credit.</div>
+      <ul class="tier-perks">
+        <li>Everything in The Supporter</li>
+        <li class="highlight">Branded tote bag + hat</li>
+        <li class="highlight">Shoutout on a milestone episode</li>
+        <li>Signed hardcover at launch</li>
+      </ul>
+      <a href="#" class="tier-btn">Support — $100</a>
+    </div>
+
+  </div>
+
+  <!-- TIERS ROW 2 -->
+  <div class="tiers-grid-bottom">
+
+    <!-- T4: THE CONTRIBUTOR -->
+    <div class="tier">
+      <div class="tier-number">04</div>
+      <div class="tier-price">
+        <span class="tier-currency">$</span>
+        <span class="tier-amount">250</span>
+      </div>
+      <div class="tier-name">The Contributor</div>
+      <div class="tier-desc">You want in on how it gets made.</div>
+      <ul class="tier-perks">
+        <li>Everything in The Advocate</li>
+        <li class="highlight">Featured in one newsletter edition</li>
+        <li class="highlight">30-min call with Fee</li>
+        <li>First look at chapters pre-publication</li>
+        <li>Credit as a Research Contributor</li>
+      </ul>
+      <a href="#" class="tier-btn">Support — $250</a>
+    </div>
+
+    <!-- T5: THE GUEST -->
+    <div class="tier">
+      <div class="tier-number">05</div>
+      <div class="tier-price">
+        <span class="tier-currency">$</span>
+        <span class="tier-amount">750</span>
+      </div>
+      <div class="tier-name">The Guest</div>
+      <div class="tier-desc">Your story belongs in this conversation.</div>
+      <ul class="tier-perks">
+        <li>Everything in The Contributor</li>
+        <li class="highlight">Guest on 2 podcast episodes</li>
+        <li class="highlight">Featured in 2 newsletter editions</li>
+        <li>Full interview archive access</li>
+        <li>Scheduling within your availability</li>
+      </ul>
+      <a href="#" class="tier-btn">Support — $750</a>
+    </div>
+
+    <!-- T6: THE BLUEPRINT -->
+    <div class="tier headline">
+      <div class="tier-number">06</div>
+      <div class="tier-price">
+        <span class="tier-currency">$</span>
+        <span class="tier-amount">2,500</span>
+      </div>
+      <div class="tier-name">The Blueprint</div>
+      <div class="tier-desc">Fee flies to you. Personally. To say thank you over dinner.</div>
+      <ul class="tier-perks">
+        <li>Everything in The Guest</li>
+        <li class="highlight">Fee travels to your city for dinner — on her</li>
+        <li class="highlight">All branded gifts included</li>
+        <li>Permanent dedication in the book</li>
+        <li>You become part of the story</li>
+      </ul>
+      <a href="#" class="tier-btn">Support — $2,500</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section">
+  <div class="why-rule"></div>
+  <div class="why-heading">Why <em>fund</em> a book?</div>
+  <p class="why-body">
+    Traditional publishing is slow and gatekept. <strong>This book has a point of view</strong> that doesn't need a committee to approve it.
+    <br><br>
+    Funding it directly means it gets written on its own terms — no watered-down framework, no guru energy, no publisher telling us to make it more aspirational.
+    <br><br>
+    The people in these interviews were honest. <strong>The book should be too.</strong>
+  </p>
+</section>
+
+<footer>
+  <p>© 2026 Felisa Wiley — Architect of Calm</p>
+  <p>Questions? hello@architectofcalm.com</p>
+</footer>
+
+</body>
+</html>
