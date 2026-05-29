@@ -33,6 +33,7 @@
     --ink-dim: #9a9088;
     --amber:   #c8862a;
     --rule:    #ddd8ce;
+    --aoc-teal: #1e3d40;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -63,13 +64,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to bottom, rgba(245,242,235,0.97) 60%, transparent);
+    background: linear-gradient(to bottom, rgba(245,242,235,0.95) 60%, transparent);
   }
 
   .nav-name {
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.18em;
+    font-size: 11px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink);
     text-decoration: none;
@@ -84,16 +85,26 @@
 
   .nav-links a {
     font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.18em;
+    font-size: 11px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--ink-dim);
+    color: var(--ink-mid);
+    font-weight: 600;
     text-decoration: none;
     transition: color 0.2s;
   }
 
   .nav-links a:hover,
   .nav-links a.active { color: var(--amber); }
+
+  .nav-links a.nav-aoc {
+    color: var(--aoc-teal);
+    font-weight: 600;
+  }
+
+  .nav-links a.nav-aoc:hover {
+    color: var(--aoc-teal);
+  }
 
   /* ── LAYOUT ── */
   .container {
@@ -113,7 +124,7 @@
 
   .page-eyebrow {
     font-family: 'DM Mono', monospace;
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--amber);
@@ -136,7 +147,7 @@
   }
 
   .page-lead {
-    font-size: 18px;
+    font-size: 19px;
     line-height: 1.7;
     color: var(--ink-mid);
     max-width: 540px;
@@ -188,7 +199,7 @@
   /* ── WEBINAR CONTENT ── */
   .webinar-meta {
     font-family: 'DM Mono', monospace;
-    font-size: 8px;
+    font-size: 12px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--amber);
@@ -197,7 +208,7 @@
   }
 
   .webinar-title {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--ink);
     line-height: 1.15;
@@ -205,7 +216,7 @@
   }
 
   .webinar-subtitle {
-    font-size: 17px;
+    font-size: 18px;
     font-style: italic;
     font-weight: 400;
     color: var(--amber);
@@ -222,7 +233,7 @@
   }
 
   .webinar-desc {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.7;
     color: var(--ink-mid);
     margin-bottom: 20px;
@@ -236,11 +247,11 @@
 
   .webinar-tags span {
     font-family: 'DM Mono', monospace;
-    font-size: 8px;
+    font-size: 14px;
     letter-spacing: 0.1em;
     color: var(--ink-dim);
     border: 1px solid var(--rule);
-    padding: 4px 10px;
+    padding: 3px 8px;
   }
 
   /* ── FOOTER ── */
@@ -259,16 +270,24 @@
 
   footer p {
     font-family: 'DM Mono', monospace;
-    font-size: 8px;
+    font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--ink-dim);
   }
 
   footer a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
     color: var(--amber);
+    font-weight: 600;
     text-decoration: none;
+    transition: opacity 0.2s;
   }
+
+  footer a:hover { opacity: 0.7; }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(12px); }
@@ -277,6 +296,7 @@
 
   @media (max-width: 768px) {
     nav { padding: 20px 24px; }
+    .nav-links { gap: 20px; flex-wrap: wrap; justify-content: flex-end; }
     .container { padding: 0 24px; }
     .page-header { padding: 100px 0 36px; }
     .webinar-item { grid-template-columns: 1fr; gap: 28px; }
@@ -291,6 +311,7 @@
   <ul class="nav-links">
     <li><a href="/resume/">Resume</a></li>
     <li><a href="/webinars/" class="active">Webinars</a></li>
+    <li><a href="/aoc/" class="nav-aoc">Architect of Calm</a></li>
     <li><a href="/#with-me">Work With Me</a></li>
   </ul>
 </nav>
@@ -364,8 +385,8 @@
 <div class="container">
   <footer>
     <div class="footer-inner">
-      <p>© 2026 Fee Wiley</p>
-      <p><a href="/">felisawiley.com</a></p>
+      <p>© 2026 Felisa "Fee" Wiley</p>
+      <p><a href="mailto:felisawiley@gmail.com?subject=Website%20inquiry">Contact</a></p>
     </div>
   </footer>
 </div>

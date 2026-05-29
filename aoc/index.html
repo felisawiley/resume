@@ -4,11 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Support the Book: Architect of Calm</title>
+<meta name="description" content="Help bring Architect of Calm from manuscript to print. Support editor, design, and production for Fee Wiley's book built from real conversations about calm.">
+<meta property="og:title" content="Support Architect of Calm">
+<meta property="og:description" content="The book is written. Your support funds editor, design, and production to bring Architect of Calm to life.">
+<meta property="og:type" content="website">
 <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="../assets/images/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="../assets/images/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=DM+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --teal-deep:  #1e3d40;
@@ -46,54 +50,69 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 24px 56px;
+  padding: 28px 56px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(to bottom, rgba(14,30,31,0.95) 0%, transparent 100%);
 }
 
-.nav-logo {
-  font-family: 'EB Garamond', serif;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+.nav-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--off-white);
   text-decoration: none;
 }
-.nav-logo em { font-style: italic; color: var(--amber); }
 
-.nav-back {
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.2em;
+  font-size: 11px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--teal-muted);
+  font-weight: 600;
   text-decoration: none;
   transition: color 0.2s;
 }
-.nav-back:hover { color: var(--amber); }
 
-/* ── HERO ── */
-.book-hero {
+.nav-links a:hover,
+.nav-links a.active { color: var(--amber); }
+
+.nav-links a.nav-aoc {
+  color: var(--amber);
+}
+
+.nav-links a.nav-aoc:hover { color: var(--teal-muted); }
+
+/* ── BOOK INTRO (two columns) ── */
+.book-intro {
   position: relative;
   z-index: 1;
-  padding: 140px 56px 64px;
-  max-width: 760px;
+  padding: 140px 56px 72px;
   animation: fadeUp 0.7s ease both;
 }
 
 .book-eyebrow {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.25em;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--amber);
   opacity: 0.8;
   margin-bottom: 24px;
 }
 
-.book-hero h1 {
+.book-intro h1 {
   font-size: clamp(48px, 7vw, 80px);
   font-weight: 800;
   line-height: 0.9;
@@ -101,14 +120,10 @@ nav {
   margin-bottom: 28px;
 }
 
-.book-hero h1 em {
-  display: block;
-  font-size: clamp(28px, 4vw, 46px);
+.book-intro h1 em {
   font-weight: 400;
   font-style: italic;
   color: var(--amber);
-  margin: 10px 0 8px;
-  line-height: 1;
 }
 
 .book-rule {
@@ -116,30 +131,69 @@ nav {
   height: 1px;
   background: var(--amber);
   opacity: 0.5;
-  margin-bottom: 28px;
+  margin-bottom: 40px;
 }
 
-.book-hero p {
+.book-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: stretch;
+}
+
+.book-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-col-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+.book-col p {
   font-size: 19px;
   line-height: 1.75;
   color: var(--teal-muted);
-  max-width: 600px;
+  margin: 0 0 1.25em;
 }
-.book-hero p strong { color: var(--off-white); font-weight: 500; }
+.book-col p:last-child { margin-bottom: 0; }
+.book-col p strong { color: var(--off-white); font-weight: 500; }
+
+.book-tagline,
+.book-col--why p:last-child {
+  margin-top: auto;
+  padding-top: 1.75em;
+}
 
 /* ── PROGRESS ── */
 .progress-section {
+  display: none;
   position: relative;
   z-index: 1;
-  padding: 0 56px 72px;
-  max-width: 760px;
-  animation: fadeUp 0.7s 0.15s ease both;
+  padding: 64px 56px 48px;
+  max-width: 52rem;
+  margin: 0 auto;
+  text-align: center;
+  border-top: 1px solid rgba(168, 196, 192, 0.1);
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+
+.progress-section .progress-label {
+  color: var(--amber);
+  opacity: 0.85;
 }
 
 .progress-label {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.2em;
+  font-size: 12px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--teal-muted);
   margin-bottom: 12px;
@@ -163,6 +217,8 @@ nav {
 
 .progress-stats {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 48px;
 }
 
@@ -175,8 +231,8 @@ nav {
 
 .stat-label {
   font-family: 'DM Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 0.15em;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--teal-muted);
   margin-top: 3px;
@@ -186,17 +242,19 @@ nav {
 .tiers-section {
   position: relative;
   z-index: 1;
-  padding: 0 56px 100px;
+  padding: 56px 56px 100px;
 }
 
 .tiers-heading {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.25em;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--amber);
-  opacity: 0.7;
+  opacity: 0.85;
   margin-bottom: 28px;
+  text-align: center;
 }
 
 .tiers-grid {
@@ -222,11 +280,30 @@ nav {
   border: 1px solid transparent;
   transition: background 0.2s, border-color 0.2s;
   position: relative;
+  --tier-text: var(--teal-muted);
+  --tier-btn-text: var(--teal-muted);
+  --tier-btn-border: rgba(168, 196, 192, 0.35);
 }
 
-.tier:hover {
+.tiers-grid .tier:nth-child(odd),
+.tiers-grid-bottom .tier:nth-child(even) {
+  --tier-text: var(--off-white);
+  --tier-btn-text: var(--off-white);
+  --tier-btn-border: rgba(240, 235, 224, 0.35);
+}
+
+.tiers-grid .tier:nth-child(even),
+.tiers-grid-bottom .tier:nth-child(odd) {
+  --tier-text: var(--teal-muted);
+  --tier-btn-text: var(--teal-muted);
+  --tier-btn-border: rgba(168, 196, 192, 0.35);
+}
+
+.tier:hover,
+.tier.featured:hover,
+.tier.headline:hover {
   background: var(--teal-mid);
-  border-color: rgba(232,184,75,0.12);
+  border-color: rgba(232, 184, 75, 0.12);
 }
 
 .tier.featured {
@@ -243,19 +320,20 @@ nav {
 .tier-badge {
   display: inline-block;
   font-family: 'DM Mono', monospace;
-  font-size: 7px;
-  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink);
   background: var(--amber);
-  padding: 3px 8px;
+  padding: 5px 10px;
   align-self: flex-start;
   margin-bottom: -4px;
 }
 
 .tier-number {
   font-family: 'DM Mono', monospace;
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 0.2em;
   color: var(--amber);
   opacity: 0.5;
@@ -271,7 +349,7 @@ nav {
 .tier-currency {
   font-family: 'DM Mono', monospace;
   font-size: 13px;
-  color: var(--teal-muted);
+  color: var(--tier-text);
   align-self: flex-start;
   margin-top: 6px;
 }
@@ -279,21 +357,21 @@ nav {
 .tier-amount {
   font-size: 44px;
   font-weight: 800;
-  color: var(--off-white);
+  color: var(--tier-text);
   line-height: 1;
 }
 
 .tier-name {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--off-white);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--tier-text);
   line-height: 1.1;
 }
 
 .tier-desc {
-  font-size: 13px;
-  color: var(--teal-muted);
-  line-height: 1.6;
+  font-size: 15px;
+  color: var(--tier-text);
+  line-height: 1.55;
   font-style: italic;
   flex: 1;
 }
@@ -307,36 +385,31 @@ nav {
 
 .tier-perks li {
   font-family: 'DM Mono', monospace;
-  font-size: 8.5px;
+  font-size: 13px;
   letter-spacing: 0.03em;
-  color: var(--off-dim);
+  color: var(--tier-text);
   display: flex;
   gap: 10px;
   align-items: flex-start;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .tier-perks li::before {
-  content: '—';
+  content: '-';
   color: var(--amber);
-  opacity: 0.5;
+  opacity: 0.65;
   flex-shrink: 0;
 }
-
-.tier-perks li.highlight {
-  color: var(--off-white);
-}
-
-.tier-perks li.highlight::before { opacity: 1; }
 
 .tier-btn {
   display: block;
   padding: 13px 20px;
-  border: 1px solid rgba(168,196,192,0.2);
+  border: 1px solid var(--tier-btn-border);
   background: transparent;
-  color: var(--off-white);
+  color: var(--tier-btn-text);
   font-family: 'DM Mono', monospace;
-  font-size: 8px;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-align: center;
@@ -365,57 +438,143 @@ nav {
   border-color: var(--amber-dim);
 }
 
-/* ── WHY ── */
-.why-section {
+/* ── THE ASK ── */
+.ask-section {
   position: relative;
   z-index: 1;
-  padding: 0 56px 100px;
-  max-width: 760px;
+  padding: 64px 56px 72px;
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid rgba(168, 196, 192, 0.1);
+  animation: fadeUp 0.7s 0.15s ease both;
 }
 
-.why-rule {
-  width: 100%;
-  height: 1px;
-  background: rgba(168,196,192,0.1);
-  margin-bottom: 56px;
+.ask-panel {
+  text-align: center;
+  padding: clamp(40px, 6vw, 56px) clamp(28px, 5vw, 48px);
+  background: rgba(232, 184, 75, 0.06);
+  border: 1px solid rgba(232, 184, 75, 0.22);
 }
 
-.why-heading {
-  font-size: 34px;
+.ask-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
   font-weight: 700;
-  color: var(--off-white);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: 0.9;
   margin-bottom: 24px;
-  line-height: 1.2;
 }
 
-.why-heading em { font-style: italic; color: var(--amber); }
+.ask-heading {
+  font-size: clamp(34px, 5vw, 48px);
+  font-weight: 800;
+  color: var(--off-white);
+  margin-bottom: 28px;
+  line-height: 1.15;
+}
 
-.why-body {
-  font-size: 18px;
+.ask-heading em { font-style: italic; color: var(--amber); }
+
+.ask-body {
+  font-size: clamp(18px, 2.2vw, 21px);
   line-height: 1.8;
   color: var(--teal-muted);
-  max-width: 580px;
+  max-width: 36rem;
+  margin: 0 auto;
 }
-.why-body strong { color: var(--off-white); font-weight: 500; }
+
+.ask-closer {
+  display: block;
+  margin-top: 1.75em;
+  font-size: clamp(22px, 3.2vw, 28px);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--amber);
+  line-height: 1.35;
+}
+
+.ask-cta {
+  display: inline-block;
+  margin-top: 1.75em;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--off-white);
+  text-decoration: none;
+  border: 1px solid rgba(168, 196, 192, 0.35);
+  padding: 12px 22px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.ask-cta:hover {
+  color: var(--ink);
+  background: var(--amber);
+  border-color: var(--amber);
+}
+
+/* ── THANKS ── */
+.thanks-section {
+  position: relative;
+  z-index: 1;
+  padding: 56px 56px 80px;
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+  border-top: 1px solid rgba(168, 196, 192, 0.1);
+}
+
+.thanks-section p {
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--teal-muted);
+  margin-bottom: 1.25em;
+}
+.thanks-section p:last-child { margin-bottom: 0; }
+.thanks-section strong { color: var(--off-white); font-weight: 500; }
+
+.thanks-sign {
+  margin-top: 1.5em;
+  font-size: 21px;
+  font-style: italic;
+  color: var(--amber);
+}
 
 /* ── FOOTER ── */
 footer {
   position: relative;
   z-index: 1;
   padding: 32px 56px;
-  border-top: 1px solid rgba(168,196,192,0.08);
+  border-top: 1px solid rgba(168,196,192,0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 footer p {
   font-family: 'DM Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 0.15em;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(168,196,192,0.25);
+  color: var(--teal-muted);
 }
+
+footer a {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--off-white);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+footer a:hover { color: var(--amber); }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
@@ -423,8 +582,10 @@ footer p {
 }
 
 @media (max-width: 768px) {
-  nav { padding: 20px 28px; }
-  .book-hero, .progress-section, .tiers-section, .why-section { padding-left: 28px; padding-right: 28px; }
+  nav { padding: 20px 24px; }
+  .nav-links { gap: 20px; flex-wrap: wrap; justify-content: flex-end; }
+  .book-intro, .ask-section, .progress-section, .tiers-section, .thanks-section { padding-left: 28px; padding-right: 28px; }
+  .book-columns { grid-template-columns: 1fr; gap: 48px; }
   .tiers-grid, .tiers-grid-bottom { grid-template-columns: 1fr; }
   footer { padding: 24px 28px; flex-direction: column; gap: 8px; }
 }
@@ -433,28 +594,43 @@ footer p {
 <body>
 
 <nav>
-  <a href="/aoc/" class="nav-logo">Architect <em>of</em> Calm</a>
-  <a href="/" class="nav-back">← Back</a>
+  <a href="/" class="nav-name">Fee Wiley</a>
+  <ul class="nav-links">
+    <li><a href="/resume/">Resume</a></li>
+    <li><a href="/webinars/">Webinars</a></li>
+    <li><a href="/aoc/" class="nav-aoc active">Architect of Calm</a></li>
+    <li><a href="/#with-me">Work With Me</a></li>
+  </ul>
 </nav>
 
-<!-- HERO -->
-<section class="book-hero">
+<!-- BOOK INTRO -->
+<section class="book-intro">
   <div class="book-eyebrow">The Book, Coming 2027</div>
-  <h1>
-    Architect
-    <em>of</em>
-    Calm
-  </h1>
+  <h1>Architect <em>of</em> Calm</h1>
   <div class="book-rule"></div>
-  <p>
-    This book started as a podcast. Over two years, <strong>Felisa "Fee" Wiley interviewed dozens of people</strong> about how they actually built calm into their lives, not the performed version. At work. At home. In the relationships that cost them the most.
-    <br><br>
-    The patterns are clear and now it's time to share stories and lessons from real people. <strong>Your support makes that happen.</strong>
-  </p>
+
+  <div class="book-columns">
+    <div class="book-col book-col--background">
+      <div class="book-col-label">Background</div>
+      <p>I was checking my phone 150 times a day while building a mindfulness app. The irony wasn't lost on me.</p>
+      <p>In 2020, I got kicked out of my apartment in LA. I bounced between cities trying to optimize my way to something that kept moving. One morning in Philadelphia, I woke up to birds chirping and actually heard them. First time in months.</p>
+      <p>I've spent my career studying broken systems. Turns out I was living inside one. Nobody handed me a blueprint. So I became the architect.</p>
+      <p>I'm Fee Wiley, and what started as a podcast became two years of the most honest conversations I've ever had. Doctors pulling doubles. Founders on the edge. Social workers carrying everyone else's weight while barely holding their own. Every one of them built something, quietly and imperfectly, in the margins of a life that wasn't slowing down.</p>
+      <p class="book-tagline"><strong>Architect of Calm is that book.</strong></p>
+    </div>
+
+    <div class="book-col book-col--why">
+      <div class="book-col-label">Why this book</div>
+      <p>We've been told calm is something you find. Nobody taught us it's something you build.</p>
+      <p>Thirty-five episodes. Conversations across healthcare, law enforcement, tech, education, and social work. Some listeners wrote in to say it was the first time they'd heard their own life described out loud. That's the gap nobody was filling. The people I interviewed weren't failing at wellness. The advice they'd been given was. That's what this book is built to fix.</p>
+      <p>The book is built in three parts. <strong>Foundation:</strong> understanding what you're actually working with. <strong>Integration:</strong> building calm inside a life that already exists. <strong>Transformation:</strong> learning to change the environments that broke you, not just survive them.</p>
+      <p>Every phase comes from real conversations. Not theory. Not research abstracts. People who did it inside actual lives. Most of us were never handed the tools. We were handed a destination and told to figure out the rest. This book is the rest.</p>
+    </div>
+  </div>
 </section>
 
-<!-- PROGRESS -->
-<section class="progress-section">
+<!-- FUNDING -->
+<section class="progress-section" id="support">
   <div class="progress-label">Funding Progress</div>
   <div class="progress-bar"><div class="progress-fill"></div></div>
   <div class="progress-stats">
@@ -473,8 +649,21 @@ footer p {
   </div>
 </section>
 
+<!-- THE ASK -->
+<section class="ask-section">
+  <div class="ask-panel">
+    <div class="ask-eyebrow">Support the book</div>
+    <div class="ask-heading">The <em>ask</em></div>
+    <p class="ask-body">
+      The interviews are done. The stories are real. The book is written. What I need now is what turns a manuscript into something you can hold: an editor, a page designer, and the production to bring it to life.
+      <span class="ask-closer">If that's you, I need you here.</span>
+    </p>
+    <a href="#tiers" class="ask-cta">See tiers below</a>
+  </div>
+</section>
+
 <!-- TIERS ROW 1 -->
-<section class="tiers-section">
+<section class="tiers-section" id="tiers">
   <div class="tiers-heading">Choose your support level</div>
 
   <div class="tiers-grid">
@@ -492,7 +681,7 @@ footer p {
         <li>Digital copy at launch</li>
         <li>Name in the acknowledgments</li>
       </ul>
-      <a href="#" class="tier-btn">Support: $20</a>
+      <a href="#" class="tier-btn" data-paypal-amount="20" data-tier="The Reader">Support: $20</a>
     </div>
 
     <!-- T2: THE SUPPORTER -->
@@ -510,7 +699,7 @@ footer p {
         <li class="highlight">Branded journal, mailed to you</li>
         <li>Named as a founding supporter</li>
       </ul>
-      <a href="#" class="tier-btn">Support: $50</a>
+      <a href="#" class="tier-btn" data-paypal-amount="50" data-tier="The Supporter">Support: $50</a>
     </div>
 
     <!-- T3: THE ADVOCATE -->
@@ -525,10 +714,10 @@ footer p {
       <ul class="tier-perks">
         <li>Everything in The Supporter</li>
         <li class="highlight">Branded tote bag + hat</li>
-        <li class="highlight">Shoutout on a milestone episode</li>
+        <li class="highlight">Shoutout at book launch</li>
         <li>Signed hardcover at launch</li>
       </ul>
-      <a href="#" class="tier-btn">Support: $100</a>
+      <a href="#" class="tier-btn" data-paypal-amount="100" data-tier="The Advocate">Support: $100</a>
     </div>
 
   </div>
@@ -552,7 +741,7 @@ footer p {
         <li>First look at chapters pre-publication</li>
         <li>Credit as a Research Contributor</li>
       </ul>
-      <a href="#" class="tier-btn">Support: $250</a>
+      <a href="#" class="tier-btn" data-paypal-amount="250" data-tier="The Contributor">Support: $250</a>
     </div>
 
     <!-- T5: THE GUEST -->
@@ -566,12 +755,11 @@ footer p {
       <div class="tier-desc">Your story belongs in this conversation.</div>
       <ul class="tier-perks">
         <li>Everything in The Contributor</li>
-        <li class="highlight">Guest on 2 podcast episodes</li>
         <li class="highlight">Featured in 2 newsletter editions</li>
-        <li>Full interview archive access</li>
+        <li>Behind-the-scenes book notes archive</li>
         <li>Scheduling within your availability</li>
       </ul>
-      <a href="#" class="tier-btn">Support: $750</a>
+      <a href="#" class="tier-btn" data-paypal-amount="750" data-tier="The Guest">Support: $750</a>
     </div>
 
     <!-- T6: THE BLUEPRINT -->
@@ -590,29 +778,52 @@ footer p {
         <li>Permanent dedication in the book</li>
         <li>You become part of the story</li>
       </ul>
-      <a href="#" class="tier-btn">Support: $2,500</a>
+      <a href="#" class="tier-btn" data-paypal-amount="2500" data-tier="The Blueprint">Support: $2,500</a>
     </div>
 
   </div>
 </section>
 
-<!-- WHY -->
-<section class="why-section">
-  <div class="why-rule"></div>
-  <div class="why-heading">Why <em>fund</em> a book?</div>
-  <p class="why-body">
-    Traditional publishing is slow and gatekept. <strong>This book has a point of view</strong> that doesn't need a committee to approve it.
-    <br><br>
-    Funding it directly means it gets written on its own terms.
-    <br><br>
-    The people in these interviews were honest. <strong>The book should be too.</strong>
-  </p>
+<section class="thanks-section">
+  <p>Any level of support matters. Every tier helps, and so does sharing this page with someone who needs it.</p>
+  <p><strong>Thank you for believing in me and helping bring Architect of Calm to life.</strong></p>
+  <p class="thanks-sign">- Fee</p>
 </section>
 
 <footer>
   <p>© 2026 Felisa Wiley, Architect of Calm</p>
-  <p>Questions? <a href="mailto:felisawiley@gmail.com" style="color: var(--teal-muted); text-decoration: none;">felisawiley@gmail.com</a></p>
+  <p>Questions? <a href="mailto:felisawiley@gmail.com">felisawiley@gmail.com</a></p>
 </footer>
+
+<script>
+(function () {
+  // PayPal.me handle (Settings → PayPal.Me). Example: "feewiley" → paypal.me/feewiley/20USD
+  const PAYPAL_ME = 'feewiley';
+  const PAYPAL_BUSINESS = 'felisawiley@gmail.com';
+
+  function paypalUrl(amount, tierName) {
+    if (PAYPAL_ME) {
+      return 'https://www.paypal.com/paypalme/' + encodeURIComponent(PAYPAL_ME) + '/' + amount + 'USD';
+    }
+    const params = new URLSearchParams({
+      cmd: '_donations',
+      business: PAYPAL_BUSINESS,
+      amount: String(amount),
+      currency_code: 'USD',
+      item_name: 'Architect of Calm — ' + tierName,
+    });
+    return 'https://www.paypal.com/cgi-bin/webscr?' + params.toString();
+  }
+
+  document.querySelectorAll('.tier-btn[data-paypal-amount]').forEach(function (btn) {
+    var amount = btn.getAttribute('data-paypal-amount');
+    var tier = btn.getAttribute('data-tier') || 'Support';
+    btn.href = paypalUrl(amount, tier);
+    btn.target = '_blank';
+    btn.rel = 'noopener noreferrer';
+  });
+})();
+</script>
 
 </body>
 </html>
