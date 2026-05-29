@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fee Wiley</title>
+<link rel="canonical" href="https://feewiley.co/">
+<script>
+  if (/\/index\.html$/i.test(location.pathname)) {
+    location.replace(location.pathname.replace(/index\.html$/i, '/') + location.search + location.hash);
+  }
+</script>
 <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="assets/images/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="assets/images/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -54,9 +60,9 @@ body::before {
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 360px;
-  gap: 0 64px;
+  gap: 0 40px;
   align-items: start;
-  padding: 120px 0 80px;
+  padding: 120px 0 48px;
   animation: fadeUp 0.7s ease both;
 }
 
@@ -233,7 +239,7 @@ nav {
 section {
   position: relative;
   z-index: 1;
-  padding: 64px 0;
+  padding: 28px 0;
   border-top: 1px solid var(--rule);
   animation: fadeUp 0.7s 0.15s ease both;
 }
@@ -487,12 +493,12 @@ footer p {
 
   .hero-grid {
     grid-template-columns: 1fr;
-    padding: 100px 0 48px;
+    padding: 100px 0 32px;
     gap: 24px;
   }
 
   .hero-left { order: 1; }
-  .hero-right { order: 2; width: 100%; }
+  .hero-right { order: 2; width: 100%; padding-bottom: 0; }
 
   .hero-greeting { display: none; }
 
@@ -510,11 +516,11 @@ footer p {
 <body>
 
 <nav>
-  <a href="index.html" class="nav-name">Fee Wiley</a>
+  <a href="/" class="nav-name">Fee Wiley</a>
   <ul class="nav-links">
-    <li><a href="resume.html">Resume</a></li>
-    <li><a href="webinars.html">Webinars</a></li>
-    <li><a href="index.html#with-me">Work With Me</a></li>
+    <li><a href="/resume/">Resume</a></li>
+    <li><a href="/webinars/">Webinars</a></li>
+    <li><a href="/#with-me">Work With Me</a></li>
   </ul>
 </nav>
 
@@ -533,7 +539,7 @@ footer p {
       <p class="hero-tagline">I build data systems that hold up, and study the ones that shape how people think.</p>
       <p class="hero-bio">Data engineer. Penn MCIT. Clinical AI and sociotechnical research.</p>
       <div class="hero-cta">
-        <a href="resume.html" class="hero-btn hero-btn-primary">View Resume</a>
+        <a href="/resume/" class="hero-btn hero-btn-primary">View Resume</a>
         <a href="#with-me" class="hero-btn">Work With Me</a>
       </div>
     </div>
@@ -573,14 +579,14 @@ footer p {
         <div class="work-title">Architect of Calm</div>
         <div class="work-desc">Book, podcast, and newsletter. Lessons from people who stopped performing wellness and started building it.</div>
         <div class="work-links">
-          <a href="aoc/index.html" class="work-link">Visit →</a>
+          <a href="/aoc/" class="work-link">Visit →</a>
           <a href="https://pausepoint-newsletter.beehiiv.com/?utm_source=from-website&utm_medium=from-website&utm_campaign=from-website" class="work-link">Newsletter →</a>
           <a href="https://open.spotify.com/show/7gPqBgYccM6GZb5tQmeY8F?utm_source=from-website&utm_medium=from-website&utm_campaign=from-website" class="work-link">Podcast →</a>
         </div>
       </div>
 
       <div class="work-item">
-        <div class="work-title">SilverCreek Insights</div>
+        <div class="work-title">Silver Creek Insights</div>
         <div class="work-desc">Data strategy and analytics consulting. Healthcare, adtech, edtech, financial services.</div>
         <div class="work-links">
           <a href="#with-me" class="work-link">Inquire →</a>
@@ -640,7 +646,7 @@ footer p {
     <div class="footer-inner">
       <p>© 2026 Felisa "Fee" Wiley</p>
       <ul class="footer-links">
-        <li><a href="aoc/index.html">Architect of Calm</a></li>
+        <li><a href="/aoc/">Architect of Calm</a></li>
         <li><a href="mailto:fee@silvercreek.ai">Contact</a></li>
       </ul>
     </div>
