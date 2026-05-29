@@ -681,7 +681,7 @@ footer a:hover { color: var(--amber); }
         <li>Digital copy at launch</li>
         <li>Name in the acknowledgments</li>
       </ul>
-      <a href="#" class="tier-btn" data-paypal-amount="20" data-tier="The Reader">Support: $20</a>
+      <a href="https://paypal.me/felisawiley1/20" class="tier-btn" target="_blank" rel="noopener noreferrer">Support: $20</a>
     </div>
 
     <!-- T2: THE SUPPORTER -->
@@ -699,7 +699,7 @@ footer a:hover { color: var(--amber); }
         <li class="highlight">Branded journal, mailed to you</li>
         <li>Named as a founding supporter</li>
       </ul>
-      <a href="#" class="tier-btn" data-paypal-amount="50" data-tier="The Supporter">Support: $50</a>
+      <a href="https://paypal.me/felisawiley1/50" class="tier-btn" target="_blank" rel="noopener noreferrer">Support: $50</a>
     </div>
 
     <!-- T3: THE ADVOCATE -->
@@ -717,7 +717,7 @@ footer a:hover { color: var(--amber); }
         <li class="highlight">Shoutout at book launch</li>
         <li>Signed hardcover at launch</li>
       </ul>
-      <a href="#" class="tier-btn" data-paypal-amount="100" data-tier="The Advocate">Support: $100</a>
+      <a href="https://paypal.me/felisawiley1/100" class="tier-btn" target="_blank" rel="noopener noreferrer">Support: $100</a>
     </div>
 
   </div>
@@ -741,7 +741,7 @@ footer a:hover { color: var(--amber); }
         <li>First look at chapters pre-publication</li>
         <li>Credit as a Research Contributor</li>
       </ul>
-      <a href="#" class="tier-btn" data-paypal-amount="250" data-tier="The Contributor">Support: $250</a>
+      <a href="https://paypal.me/felisawiley1/250" class="tier-btn" target="_blank" rel="noopener noreferrer">Support: $250</a>
     </div>
 
     <!-- T5: THE GUEST -->
@@ -759,7 +759,7 @@ footer a:hover { color: var(--amber); }
         <li>Behind-the-scenes book notes archive</li>
         <li>Scheduling within your availability</li>
       </ul>
-      <a href="#" class="tier-btn" data-paypal-amount="750" data-tier="The Guest">Support: $750</a>
+      <a href="https://paypal.me/felisawiley1/750" class="tier-btn" target="_blank" rel="noopener noreferrer">Support: $750</a>
     </div>
 
     <!-- T6: THE BLUEPRINT -->
@@ -778,7 +778,7 @@ footer a:hover { color: var(--amber); }
         <li>Permanent dedication in the book</li>
         <li>You become part of the story</li>
       </ul>
-      <a href="#" class="tier-btn" data-paypal-amount="2500" data-tier="The Blueprint">Support: $2,500</a>
+      <a href="https://paypal.me/felisawiley1/2500" class="tier-btn" target="_blank" rel="noopener noreferrer">Support: $2,500</a>
     </div>
 
   </div>
@@ -794,36 +794,6 @@ footer a:hover { color: var(--amber); }
   <p>© 2026 Felisa Wiley, Architect of Calm</p>
   <p>Questions? <a href="mailto:felisawiley@gmail.com">felisawiley@gmail.com</a></p>
 </footer>
-
-<script>
-(function () {
-  // PayPal.me handle (Settings → PayPal.Me). Example: "feewiley" → paypal.me/feewiley/20USD
-  const PAYPAL_ME = 'felisawiley1';
-  const PAYPAL_BUSINESS = 'felisawiley@gmail.com';
-
-  function paypalUrl(amount, tierName) {
-    if (PAYPAL_ME) {
-      return 'https://www.paypal.com/paypalme/' + encodeURIComponent(PAYPAL_ME) + '/' + amount + 'USD';
-    }
-    const params = new URLSearchParams({
-      cmd: '_donations',
-      business: PAYPAL_BUSINESS,
-      amount: String(amount),
-      currency_code: 'USD',
-      item_name: 'Architect of Calm — ' + tierName,
-    });
-    return 'https://www.paypal.com/cgi-bin/webscr?' + params.toString();
-  }
-
-  document.querySelectorAll('.tier-btn[data-paypal-amount]').forEach(function (btn) {
-    var amount = btn.getAttribute('data-paypal-amount');
-    var tier = btn.getAttribute('data-tier') || 'Support';
-    btn.href = paypalUrl(amount, tier);
-    btn.target = '_blank';
-    btn.rel = 'noopener noreferrer';
-  });
-})();
-</script>
 
 </body>
 </html>
